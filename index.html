@@ -50,6 +50,26 @@
       html { scroll-behavior: smooth; }
       body { font-family: 'Pretendard Variable', 'Pretendard', sans-serif; }
 
+      .site-header {
+        background: rgba(255, 255, 255, 0.72);
+        border-color: rgba(255, 255, 255, 0.45);
+        box-shadow: none;
+        transition: background-color .28s ease, box-shadow .28s ease, border-color .28s ease;
+      }
+      .site-header.header-scrolled,
+      .site-header.menu-active {
+        background: rgba(255, 255, 255, 0.96);
+        border-color: rgba(229, 231, 235, 1);
+        box-shadow: 0 10px 34px rgba(17, 24, 39, 0.08);
+      }
+      body.menu-open {
+        overflow: hidden;
+        touch-action: none;
+      }
+      #mobile-menu {
+        overscroll-behavior: contain;
+      }
+
       h1, h2, h3, .keep-ko {
         word-break: keep-all;
         overflow-wrap: break-word;
@@ -167,7 +187,7 @@
 
   <body class="bg-[#f7f8fb] text-ink antialiased">
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 border-b border-white/40 bg-white backdrop-blur-xl shadow-[0_8px_30px_rgba(17,24,39,.04)]">
+    <header id="site-header" class="site-header sticky top-0 z-50 border-b backdrop-blur-xl">
       <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 md:px-6">
         <a href="#hero" class="flex items-center gap-3" aria-label="폰쥬르 홈으로 이동">
           <span class="flex size-10 items-center justify-center rounded-2xl bg-ink text-lg font-black text-brand shadow-card">폰</span>
@@ -180,6 +200,7 @@
         <nav class="hidden items-center gap-8 lg:flex" aria-label="주요 메뉴">
           <a href="#solution" class="text-sm font-bold text-muted transition hover:text-ink">경쟁력</a>
           <a href="#cost" class="text-sm font-bold text-muted transition hover:text-ink">창업비용</a>
+          <a href="#conversion" class="text-sm font-bold text-muted transition hover:text-ink">전환가맹</a>
           <a href="#device" class="text-sm font-bold text-muted transition hover:text-ink">공급구조</a>
           <a href="#marketing" class="text-sm font-bold text-muted transition hover:text-ink">마케팅 지원</a>
           <a href="#process" class="text-sm font-bold text-muted transition hover:text-ink">창업절차</a>
@@ -195,10 +216,11 @@
         </div>
       </div>
 
-      <nav id="mobile-menu" class="hidden border-t border-line bg-white lg:hidden" aria-label="모바일 메뉴">
-        <div class="mx-auto flex max-w-7xl flex-col px-4 py-3">
+      <nav id="mobile-menu" class="hidden fixed inset-x-0 top-[72px] bottom-0 z-40 overflow-y-auto border-t border-line bg-white/95 backdrop-blur-xl lg:hidden" aria-label="모바일 메뉴">
+        <div class="mx-auto flex min-h-full max-w-7xl flex-col justify-start px-4 py-6">
           <a href="#solution" class="mobile-link rounded-xl px-3 py-3 text-base font-bold hover:bg-soft">경쟁력</a>
           <a href="#cost" class="mobile-link rounded-xl px-3 py-3 text-base font-bold hover:bg-soft">창업비용</a>
+          <a href="#conversion" class="mobile-link rounded-xl px-3 py-3 text-base font-bold hover:bg-soft">전환가맹</a>
           <a href="#device" class="mobile-link rounded-xl px-3 py-3 text-base font-bold hover:bg-soft">공급구조</a>
           <a href="#marketing" class="mobile-link rounded-xl px-3 py-3 text-base font-bold hover:bg-soft">마케팅 지원</a>
           <a href="#process" class="mobile-link rounded-xl px-3 py-3 text-base font-bold hover:bg-soft">창업절차</a>
@@ -219,6 +241,7 @@
           <div>
             <div class="mb-6 flex flex-wrap gap-2">
               <span class="section-label">PONJOUR STARTUP</span>
+              <span class="rounded-full border border-brand/40 bg-brand px-3 py-2 text-xs font-black text-ink shadow-glow">오픈 전 희망 지역 상권 검토 지원</span>
               <span class="rounded-full border border-line bg-white px-3 py-2 text-xs font-extrabold text-ink shadow-sm">초보 창업자 상담 가능</span>
               <span class="rounded-full border border-line bg-white px-3 py-2 text-xs font-extrabold text-ink shadow-sm">상표등록 완료 브랜드</span>
               <span class="rounded-full border border-line bg-white px-3 py-2 text-xs font-extrabold text-ink shadow-sm">본사 마케팅 지원</span>
@@ -424,6 +447,63 @@
               <div class="rounded-2xl bg-soft p-4"><p class="font-black">운영 집기 준비</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
               <div class="rounded-2xl bg-soft p-4"><p class="font-black">초도 물품 구성</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
               <div class="rounded-2xl bg-soft p-4"><p class="font-black">오픈 초기 마케팅</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- CONVERSION FRANCHISE -->
+      <section id="conversion" class="relative overflow-hidden bg-white">
+        <div class="absolute -right-28 top-20 size-96 rounded-full bg-brand/10 blur-3xl"></div>
+        <div class="relative mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-24">
+          <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <span class="section-label">CONVERSION FRANCHISE</span>
+              <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">
+                기존 휴대폰 매장도<br />폰쥬르 브랜드로 전환할 수 있습니다
+              </h2>
+              <p class="mt-5 text-lg font-medium leading-[1.85] text-muted">
+                이미 매장을 운영 중이라면 모든 것을 새로 시작할 필요는 없습니다. 기존 매장의 입지와 운영 자산은 최대한 살리고, 상호와 간판, 온라인 노출, 단말기 공급 구조, 본사 마케팅 지원을 폰쥬르 기준으로 다시 정리할 수 있습니다.
+              </p>
+              <div class="mt-7 rounded-[28px] border border-line bg-soft p-6 shadow-card">
+                <p class="text-sm font-black tracking-[0.12em] text-muted">REBRANDING POINT</p>
+                <p class="mt-2 keep-ko text-xl font-black text-ink">기존 매장의 장점은 살리고, 부족했던 고객 유입 구조를 새롭게 잡습니다.</p>
+                <a href="#lead-form" class="shine-button mt-5 inline-flex h-14 items-center justify-center rounded-2xl bg-ink px-6 py-4 text-sm font-black text-white shadow-premium transition hover:-translate-y-1 active:scale-[0.98]">기존 매장 전환 상담받기</a>
+              </div>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+                <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 13v.01"/><path d="M9 17v.01"/></svg></span>
+                <h3 class="text-lg font-black">기존 매장 활용</h3>
+                <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">운영 중인 매장의 입지와 내부 구성을 먼저 확인합니다.</p>
+              </article>
+              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+                <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 7l1.5-3h13L20 7"/><path d="M5 7v13h14V7"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span>
+                <h3 class="text-lg font-black">상호·간판 정리</h3>
+                <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">폰쥬르 브랜드 기준으로 외부 노출과 매장 이미지를 정리합니다.</p>
+              </article>
+              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+                <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.3-4.3"/><circle cx="11" cy="11" r="8"/><path d="M8 11h6"/><path d="M11 8v6"/></svg></span>
+                <h3 class="text-lg font-black">온라인 노출 재정비</h3>
+                <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">플레이스, 블로그, SNS 등 지역 고객의 검색 동선을 점검합니다.</p>
+              </article>
+              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+                <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/><path d="M9 6h6"/></svg></span>
+                <h3 class="text-lg font-black">공급 구조 점검</h3>
+                <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">현재 운영 조건을 확인하고 판매에 집중할 방향을 상담합니다.</p>
+              </article>
+              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+                <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></span>
+                <h3 class="text-lg font-black">상담 흐름 개선</h3>
+                <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">요금제, 개통, 고객 응대 흐름을 폰쥬르 기준으로 정리합니다.</p>
+              </article>
+              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+                <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+                <h3 class="text-lg font-black">오픈 재홍보 지원</h3>
+                <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">상호 변경 이후 지역 고객에게 다시 알릴 홍보 방향을 잡습니다.</p>
+              </article>
             </div>
           </div>
         </div>
@@ -742,11 +822,11 @@
               <input id="privacy-consent" name="privacyConsent" type="checkbox" class="mt-1 size-4 accent-brand" required />
               <span>
                 개인정보 수집 및 이용에 동의합니다.
-                <span class="mt-1 block text-xs font-normal leading-relaxed text-muted/80">(수집항목: 이름, 연락처, 희망지역, 예산 / 보유기간: 상담 완료 후 목적 달성 시 즉시 파기)</span>
+                <span class="mt-1 block text-xs font-normal leading-relaxed text-muted/80">(수집항목: 이름, 연락처, 희망지역, 창업예산, 업종경험, 창업시기, 문의내용 / 보유기간: 상담 완료 후 목적 달성 시 즉시 파기)</span>
               </span>
             </label>
 
-            <button type="submit" class="shine-button h-14 w-full rounded-2xl bg-brand text-base font-black text-ink shadow-glow transition hover:-translate-y-1 active:scale-[0.98] hover:bg-[#e7b910]">폰쥬르 창업 상담 신청하기</button>
+            <button id="lead-submit-btn" type="submit" class="shine-button h-14 w-full rounded-2xl bg-brand text-base font-black text-ink shadow-glow transition hover:-translate-y-1 active:scale-[0.98] hover:bg-[#e7b910]">폰쥬르 창업 상담 신청하기</button>
             <p class="text-center text-xs font-medium leading-[1.7] text-muted">※ 단순 문의도 괜찮습니다. 남겨주신 정보는 창업 상담 안내 목적으로만 사용되며, 확인 후 순차적으로 연락드립니다.</p>
           </form>
         </div>
@@ -778,26 +858,51 @@
       // 추후 카카오톡 채널 상담 버튼을 연결할 때 아래 URL만 실제 채널 주소로 교체하면 됩니다.
       // 예: const KAKAO_CHANNEL_URL = 'https://pf.kakao.com/_xxxxxx/chat';
       const KAKAO_CHANNEL_URL = '';
+      // 추후 구글시트 Apps Script, Formspree, Zapier 등 폼 전송 주소를 연결할 때 아래 URL만 입력하면 됩니다.
+      // 비워두면 현재처럼 프론트엔드 성공 메시지만 표시됩니다.
+      const FORM_ENDPOINT = '';
 
+      const siteHeader = document.getElementById('site-header');
       const menuToggle = document.getElementById('menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
       const menuIcon = document.getElementById('menu-icon');
       const closeIcon = document.getElementById('close-icon');
 
+      function updateHeaderState() {
+        siteHeader?.classList.toggle('header-scrolled', window.scrollY > 8);
+      }
+      updateHeaderState();
+      window.addEventListener('scroll', updateHeaderState, { passive: true });
+
+      function openMobileMenu() {
+        mobileMenu?.classList.remove('hidden');
+        document.body.classList.add('menu-open');
+        siteHeader?.classList.add('menu-active');
+        menuToggle?.setAttribute('aria-expanded', 'true');
+        menuIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+      }
+
+      function closeMobileMenu() {
+        mobileMenu?.classList.add('hidden');
+        document.body.classList.remove('menu-open');
+        siteHeader?.classList.remove('menu-active');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+      }
+
       menuToggle?.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.toggle('hidden');
-        menuToggle.setAttribute('aria-expanded', String(!isHidden));
-        menuIcon.classList.toggle('hidden', !isHidden);
-        closeIcon.classList.toggle('hidden', isHidden);
+        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        isOpen ? closeMobileMenu() : openMobileMenu();
       });
 
       document.querySelectorAll('.mobile-link').forEach((link) => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          menuToggle?.setAttribute('aria-expanded', 'false');
-          menuIcon?.classList.remove('hidden');
-          closeIcon?.classList.add('hidden');
-        });
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeMobileMenu();
       });
 
       const revealTargets = document.querySelectorAll('main section article, main section .shadow-card, main section .shadow-premium, #lead-form-el, #faq-list > div');
@@ -913,7 +1018,7 @@
         });
       }
 
-      leadForm?.addEventListener('submit', (event) => {
+      leadForm?.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const name = document.getElementById('name');
@@ -924,6 +1029,7 @@
         const experience = document.getElementById('experience-input');
         const timing = document.getElementById('timing-input');
         const privacy = document.getElementById('privacy-consent');
+        const submitButton = document.getElementById('lead-submit-btn');
 
         if (!name?.value.trim()) return showFormAlert('이름을 입력해주세요.');
         if (!phone?.value.trim()) return showFormAlert('연락처를 입력해주세요.');
@@ -935,19 +1041,61 @@
         if (!message?.value.trim()) return showFormAlert('문의 내용을 입력해주세요.');
         if (!privacy?.checked) return showFormAlert('개인정보 수집 및 이용에 동의해주세요.');
 
-        formAlert?.classList.add('hidden');
-        formSuccess?.classList.remove('hidden');
+        const payload = {
+          name: name.value.trim(),
+          phone: phone.value.trim(),
+          region: region.value,
+          budget: budget.value,
+          experience: experience.value,
+          timing: timing.value,
+          message: message.value.trim(),
+          submittedAt: new Date().toISOString(),
+          source: '폰쥬르 프랜차이즈 랜딩페이지',
+        };
 
-        if (KAKAO_CHANNEL_URL && kakaoSuccessLink) {
-          kakaoSuccessLink.href = KAKAO_CHANNEL_URL;
-          kakaoSuccessLink.classList.remove('hidden');
-          kakaoSuccessLink.classList.add('inline-flex');
+        formAlert?.classList.add('hidden');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = '상담 신청 중...';
+          submitButton.classList.add('opacity-80', 'cursor-wait');
         }
 
-        leadForm.reset();
-        resetPillGroups();
-        formSuccess?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        try {
+          // FORM_ENDPOINT에 실제 전송 URL을 넣으면 아래 fetch가 상담 데이터를 전송합니다.
+          // 예: Google Apps Script Web App URL, Formspree endpoint, Zapier webhook 등
+          if (FORM_ENDPOINT) {
+            await fetch(FORM_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+          } else {
+            console.info('FORM_ENDPOINT가 비어 있어 프론트엔드 성공 처리만 실행합니다.', payload);
+          }
+
+          formSuccess?.classList.remove('hidden');
+
+          if (KAKAO_CHANNEL_URL && kakaoSuccessLink) {
+            kakaoSuccessLink.href = KAKAO_CHANNEL_URL;
+            kakaoSuccessLink.classList.remove('hidden');
+            kakaoSuccessLink.classList.add('inline-flex');
+          }
+
+          leadForm.reset();
+          resetPillGroups();
+          formSuccess?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (error) {
+          console.error('폼 전송 오류:', error);
+          showFormAlert('상담 신청 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = '폰쥬르 창업 상담 신청하기';
+            submitButton.classList.remove('opacity-80', 'cursor-wait');
+          }
+        }
       });
+
     </script>
   </body>
 </html>
