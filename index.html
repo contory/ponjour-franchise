@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>폰쥬르 | 휴대폰 창업 프랜차이즈</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <meta
       name="description"
       content="폰쥬르 휴대폰 창업 프랜차이즈. 초기 비용 부담은 줄이고, 단말기 공급 구조와 본사 마케팅 지원, 오픈 후 운영 관리까지 현실적으로 함께 설계합니다."
@@ -187,6 +189,11 @@
         transform: translateY(120%);
         opacity: 0;
         pointer-events: none;
+      }
+
+      ::selection {
+        background-color: #f5c518;
+        color: #111827;
       }
     </style>
   </head>
@@ -856,7 +863,11 @@
         <div>
           <p class="text-2xl font-black">폰쥬르</p>
           <p class="mt-2 text-sm font-medium text-white/55">실속형 휴대폰 매장 창업 프랜차이즈</p>
-          <p class="mt-5 max-w-xl text-sm leading-[1.8] text-white/50">사업자 정보, 대표번호, 이메일, 주소 등 실제 정보는 오픈 전 최종 확인 후 입력해주세요.</p>
+          <p class="mt-5 max-w-xl text-sm leading-[1.8] text-white/50">
+            본사: 주식회사 지바모바일 · 대표: 유지운<br />
+            사업자등록번호: 167-86-03866<br />
+            주소: 경상남도 김해시 대청로 58-10, 4층(관동동)
+          </p>
         </div>
         <div class="flex flex-wrap gap-4 text-sm font-bold text-white/60">
           <a href="#" class="hover:text-white">개인정보처리방침</a>
@@ -871,6 +882,15 @@
       <a href="#lead-form" class="shine-button flex h-14 w-full items-center justify-center rounded-2xl bg-brand text-base font-black text-ink shadow-premium">창업 상담 신청하기</a>
     </div>
 
+    <!-- DESKTOP KAKAO FLOATING CTA -->
+    <div class="hidden lg:block fixed bottom-8 right-8 z-50 transition duration-300 hover:-translate-y-1">
+      <a href="#lead-form" id="desktop-kakao-btn" target="_self" rel="noopener" class="flex size-16 items-center justify-center rounded-full bg-[#FEE500] shadow-premium ring-4 ring-white/50 transition active:scale-95" aria-label="카카오톡 상담하기">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#111827" aria-hidden="true">
+          <path d="M12 4c-4.97 0-9 3.185-9 7.115 0 2.557 1.707 4.8 4.369 5.962-.136.5-.436 1.636-.5 1.884-.085.335.114.327.243.243.104-.069 1.636-1.121 2.307-1.571.503.078 1.03.121 1.581.121 4.97 0 9-3.186 9-7.116C21 7.185 16.97 4 12 4z"/>
+        </svg>
+      </a>
+    </div>
+
     <script>
       // 추후 카카오톡 채널 상담 버튼을 연결할 때 아래 URL만 실제 채널 주소로 교체하면 됩니다.
       // 예: const KAKAO_CHANNEL_URL = 'https://pf.kakao.com/_xxxxxx/chat';
@@ -878,6 +898,12 @@
       // 추후 구글시트 Apps Script, Formspree, Zapier 등 폼 전송 주소를 연결할 때 아래 URL만 입력하면 됩니다.
       // 비워두면 현재처럼 프론트엔드 성공 메시지만 표시됩니다.
       const FORM_ENDPOINT = '';
+
+      const desktopKakaoBtn = document.getElementById('desktop-kakao-btn');
+      if (desktopKakaoBtn && KAKAO_CHANNEL_URL) {
+        desktopKakaoBtn.href = KAKAO_CHANNEL_URL;
+        desktopKakaoBtn.target = '_blank';
+      }
 
       const siteHeader = document.getElementById('site-header');
       const menuToggle = document.getElementById('menu-toggle');
