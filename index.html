@@ -155,16 +155,21 @@
       .pill {
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
-        will-change: transform;
+        will-change: transform, background-color, border-color, color, box-shadow;
+        transition: background-color .06s linear, border-color .06s linear, color .06s linear, box-shadow .08s linear, transform .08s ease;
       }
+      .pill.instant-selected-marker { outline: none; }
       .pill[aria-pressed="true"],
       .pill.is-selected {
-        background: #f5c518;
-        border-color: #f5c518;
-        color: #111827;
+        background: #f5c518 !important;
+        border-color: #f5c518 !important;
+        color: #111827 !important;
         font-weight: 900;
-        box-shadow: 0 10px 24px rgba(245,197,24,.28);
-        transform: translateY(-1px);
+        box-shadow: 0 10px 24px rgba(245,197,24,.32);
+        transform: translateY(-1px) scale(1.01);
+      }
+      .pill:active {
+        transform: translateY(0) scale(.97);
       }
       .reveal {
         opacity: 0;
@@ -993,21 +998,36 @@
       }
 
       document.querySelectorAll('.pill-group').forEach((group) => {
+        let pointerHandled = false;
+
+        const selectPill = (pill) => {
+          group.querySelectorAll('.pill').forEach((item) => {
+            item.setAttribute('aria-pressed', 'false');
+            item.classList.remove('is-selected');
+          });
+
+          pill.setAttribute('aria-pressed', 'true');
+          pill.classList.add('is-selected');
+
+          const hiddenInput = group.closest('fieldset')?.querySelector('input[type="hidden"]');
+          if (hiddenInput) {
+            hiddenInput.value = (pill.textContent || pill.innerText).trim();
+            updateSummary(hiddenInput);
+          }
+        };
+
         group.querySelectorAll('.pill').forEach((pill) => {
+          pill.addEventListener('pointerdown', () => {
+            pointerHandled = true;
+            selectPill(pill);
+          }, { passive: true });
+
           pill.addEventListener('click', () => {
-            group.querySelectorAll('.pill').forEach((item) => {
-              item.setAttribute('aria-pressed', 'false');
-              item.classList.remove('is-selected');
-            });
-
-            pill.setAttribute('aria-pressed', 'true');
-            pill.classList.add('is-selected');
-
-            const hiddenInput = group.closest('fieldset')?.querySelector('input[type="hidden"]');
-            if (hiddenInput) {
-              hiddenInput.value = (pill.textContent || pill.innerText).trim();
-              updateSummary(hiddenInput);
+            if (pointerHandled) {
+              pointerHandled = false;
+              return;
             }
+            selectPill(pill);
           });
         });
       });
@@ -1088,6 +1108,7 @@
         if (!privacy?.checked) return showFormAlert('개인정보 수집 및 이용에 동의해주세요.');
 
         const payload = {
+          consulting_type: consultingType.value,
           name: name.value.trim(),
           phone: phone.value.trim(),
           consultingType: consultingType.value,
