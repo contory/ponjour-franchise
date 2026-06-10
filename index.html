@@ -196,6 +196,38 @@
         pointer-events: none;
       }
 
+
+      .mobile-collapsed {
+        display: none;
+      }
+      .mobile-collapsed.is-open {
+        display: block;
+      }
+      @media (min-width: 768px) {
+        .mobile-collapsed {
+          display: block !important;
+        }
+        .mobile-toggle-only {
+          display: none !important;
+        }
+      }
+      .mobile-accordion-panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows .26s ease;
+      }
+      .faq-item.is-open {
+        border-left: 5px solid #f5c518;
+        background: rgba(255, 248, 223, 0.45);
+      }
+      .faq-item.is-open .faq-toggle {
+        background: rgba(255, 248, 223, 0.55);
+      }
+
+      .mobile-accordion-panel.is-open {
+        grid-template-rows: 1fr;
+      }
+
       ::selection {
         background-color: #f5c518;
         color: #111827;
@@ -255,7 +287,7 @@
         <div class="absolute -right-28 top-20 size-80 rounded-full bg-brand/25 blur-3xl"></div>
         <div class="absolute -left-36 bottom-0 size-96 rounded-full bg-ink/5 blur-3xl"></div>
 
-        <div class="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 md:px-6 md:py-24 lg:grid-cols-[1fr_1.05fr] lg:items-center">
+        <div class="relative mx-auto grid max-w-7xl gap-12 px-4 py-14 md:px-6 md:py-24 lg:grid-cols-[1fr_1.05fr] lg:items-center">
           <div>
             <div class="mb-6 flex flex-wrap gap-2">
               <span class="section-label">PONJOUR STARTUP</span>
@@ -341,7 +373,7 @@
 
       <!-- PROBLEM -->
       <section id="problem" class="bg-[#f7f8fb]">
-        <div class="mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="mx-auto max-w-3xl text-center">
             <span class="section-label">창업 고민</span>
             <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] text-ink md:text-5xl">휴대폰 창업,<br class="hidden sm:block" /> 혼자 준비하면 막막한 이유가 있습니다.</h2>
@@ -351,41 +383,41 @@
           </div>
 
           <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="rounded-[26px] border border-line bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
-              <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink">
+            <div class="rounded-[26px] border border-line border-t-4 border-t-brand bg-white p-4 md:p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <span class="mb-4 flex size-10 md:mb-5 md:size-12 items-center justify-center rounded-2xl bg-cream text-ink">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
               </span>
-              <p class="text-lg font-black">초기 비용이 부담됩니다</p>
+              <p class="text-base font-black md:text-lg">초기 비용이 부담됩니다</p>
             </div>
-            <div class="rounded-[26px] border border-line bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
-              <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink">
+            <div class="rounded-[26px] border border-line border-t-4 border-t-brand bg-white p-4 md:p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <span class="mb-4 flex size-10 md:mb-5 md:size-12 items-center justify-center rounded-2xl bg-cream text-ink">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>
               </span>
-              <p class="text-lg font-black">단말기 공급 구조가 복잡합니다</p>
+              <p class="text-base font-black md:text-lg">단말기 공급 구조가 복잡합니다</p>
             </div>
-            <div class="rounded-[26px] border border-line bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
-              <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink">
+            <div class="rounded-[26px] border border-line border-t-4 border-t-brand bg-white p-4 md:p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <span class="mb-4 flex size-10 md:mb-5 md:size-12 items-center justify-center rounded-2xl bg-cream text-ink">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-7"/></svg>
               </span>
-              <p class="text-lg font-black">오픈 후 고객 유입이 걱정됩니다</p>
+              <p class="text-base font-black md:text-lg">오픈 후 고객 유입이 걱정됩니다</p>
             </div>
-            <div class="rounded-[26px] border border-line bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
-              <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink">
+            <div class="rounded-[26px] border border-line border-t-4 border-t-brand bg-white p-4 md:p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <span class="mb-4 flex size-10 md:mb-5 md:size-12 items-center justify-center rounded-2xl bg-cream text-ink">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
               </span>
-              <p class="text-lg font-black">요금제와 개통 상담이 낯섭니다</p>
+              <p class="text-base font-black md:text-lg">요금제와 개통 상담이 낯섭니다</p>
             </div>
-            <div class="rounded-[26px] border border-line bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
-              <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink">
+            <div class="rounded-[26px] border border-line border-t-4 border-t-brand bg-white p-4 md:p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <span class="mb-4 flex size-10 md:mb-5 md:size-12 items-center justify-center rounded-2xl bg-cream text-ink">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v6h6"/><path d="M21 12A9 9 0 0 0 6 5.3L3 8"/><path d="M21 22v-6h-6"/><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"/></svg>
               </span>
-              <p class="text-lg font-black">정책 변화 대응이 어렵습니다</p>
+              <p class="text-base font-black md:text-lg">정책 변화 대응이 어렵습니다</p>
             </div>
-            <div class="rounded-[26px] border border-line bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
-              <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink">
+            <div class="rounded-[26px] border border-line border-t-4 border-t-brand bg-white p-4 md:p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <span class="mb-4 flex size-10 md:mb-5 md:size-12 items-center justify-center rounded-2xl bg-cream text-ink">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 6 4v14"/><path d="M9 21v-7h6v7"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
               </span>
-              <p class="text-lg font-black">매장 운영 흐름이 막막합니다</p>
+              <p class="text-base font-black md:text-lg">매장 운영 흐름이 막막합니다</p>
             </div>
           </div>
         </div>
@@ -393,7 +425,7 @@
 
       <!-- SOLUTION -->
       <section id="solution" class="bg-white">
-        <div class="mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div class="max-w-3xl">
               <span class="section-label">창업 지원 구조</span>
@@ -419,11 +451,13 @@
               <span class="flex size-12 items-center justify-center rounded-2xl bg-brand text-lg font-black">01</span>
               <h3 class="mt-6 text-2xl font-black">이해하기 쉬운 단말기 공급 구조</h3>
               <p class="mt-4 leading-[1.8] text-muted">단말기 수급과 판매 조건을 가맹점 입장에서 이해하기 쉽게 정리해드립니다.</p>
+              <div class="mt-5 grid gap-2 text-sm font-black text-ink"><span class="rounded-xl bg-cream px-3 py-2">✓ 수급 방향 안내</span><span class="rounded-xl bg-cream px-3 py-2">✓ 판매 조건 정리</span></div>
             </article>
             <article class="rounded-[32px] border border-line bg-white p-8 shadow-card transition hover:-translate-y-1 active:scale-[0.98] hover:shadow-premium">
               <span class="flex size-12 items-center justify-center rounded-2xl bg-brand text-lg font-black">02</span>
               <h3 class="mt-6 text-2xl font-black">본사 마케팅 지원</h3>
               <p class="mt-4 leading-[1.8] text-muted">오픈 초반부터 지역 고객이 검색하고 방문할 수 있도록 플레이스, 블로그, SNS, 지역 키워드 중심의 홍보 흐름을 잡아드립니다.</p>
+              <div class="mt-5 grid gap-2 text-sm font-black text-ink"><span class="rounded-xl bg-cream px-3 py-2">✓ 플레이스 노출 방향</span><span class="rounded-xl bg-cream px-3 py-2">✓ 지역 키워드 콘텐츠</span></div>
             </article>
             <article class="rounded-[32px] border border-line bg-white p-8 shadow-card transition hover:-translate-y-1 active:scale-[0.98] hover:shadow-premium lg:col-span-2">
               <div class="grid gap-6 md:grid-cols-[.8fr_1.2fr] md:items-center">
@@ -441,13 +475,13 @@
       <!-- COST -->
       <section id="cost" class="relative overflow-hidden bg-[#f7f8fb]">
         <div class="absolute left-0 top-0 h-full w-1/3 bg-cream/70"></div>
-        <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-20 md:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:py-24">
+        <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 md:py-20 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:py-24">
           <div>
             <span class="section-label">창업 비용 설계</span>
             <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">창업비용은 낮추고,<br />필요한 준비는 놓치지 않게</h2>
             <p class="mt-5 text-lg font-medium leading-[1.85] text-muted">폰쥬르는 무조건 크게 시작하는 창업보다 예산과 상권에 맞는 현실적인 시작을 중요하게 봅니다. 매장 규모, 지역 조건, 운영 방식에 따라 꼭 필요한 항목을 먼저 정리하고 불필요한 지출은 줄이는 방향으로 상담합니다.</p>
             <p class="mt-6 rounded-3xl border border-line bg-white p-5 text-sm font-medium leading-[1.8] text-muted shadow-card">※ 창업 비용은 매장 규모, 지역, 인테리어 범위, 운영 방식에 따라 달라질 수 있습니다. 정확한 비용은 상담 후 안내드립니다.</p>
-            <a href="#lead-form" class="mt-7 inline-flex rounded-2xl bg-ink px-7 py-4 text-base font-black text-white shadow-premium transition hover:-translate-y-1 active:scale-[0.98]">내 예산에 맞는 창업 비용 상담받기</a>
+            <a href="#lead-form" class="mt-7 inline-flex rounded-2xl bg-ink px-7 py-4 text-base font-black text-white shadow-premium transition hover:-translate-y-1 active:scale-[0.98]">내 예산 기준으로 창업 방향 확인하기</a>
           </div>
 
           <div class="rounded-[36px] border border-white bg-white p-5 shadow-premium md:p-8">
@@ -459,12 +493,12 @@
               <span class="rounded-full bg-brand px-4 py-2 text-sm font-black text-ink">상담 후 맞춤 안내</span>
             </div>
             <div class="grid gap-3 sm:grid-cols-2">
-              <div class="rounded-2xl bg-soft p-4"><p class="font-black">창업 상담</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
-              <div class="rounded-2xl bg-soft p-4"><p class="font-black">매장 규모 상담</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
-              <div class="rounded-2xl bg-soft p-4"><p class="font-black">간판 / 내부 구성</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
-              <div class="rounded-2xl bg-soft p-4"><p class="font-black">운영 집기 준비</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
-              <div class="rounded-2xl bg-soft p-4"><p class="font-black">초도 물품 구성</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
-              <div class="rounded-2xl bg-soft p-4"><p class="font-black">오픈 초기 마케팅</p><p class="mt-1 text-sm font-bold text-muted">상담 후 안내</p></div>
+              <div class="rounded-2xl bg-soft p-4"><p class="font-black">창업 상담</p><p class="mt-1 text-sm font-bold text-muted">방향 설정</p></div>
+              <div class="rounded-2xl bg-soft p-4"><p class="font-black">매장 규모 상담</p><p class="mt-1 text-sm font-bold text-muted">규모 검토</p></div>
+              <div class="rounded-2xl bg-soft p-4"><p class="font-black">간판 / 내부 구성</p><p class="mt-1 text-sm font-bold text-muted">범위 조정</p></div>
+              <div class="rounded-2xl bg-soft p-4"><p class="font-black">운영 집기 준비</p><p class="mt-1 text-sm font-bold text-muted">필수 항목</p></div>
+              <div class="rounded-2xl bg-soft p-4"><p class="font-black">초도 물품 구성</p><p class="mt-1 text-sm font-bold text-muted">운영 준비</p></div>
+              <div class="rounded-2xl bg-soft p-4"><p class="font-black">오픈 초기 마케팅</p><p class="mt-1 text-sm font-bold text-muted">홍보 세팅</p></div>
             </div>
           </div>
         </div>
@@ -472,17 +506,17 @@
 
 
       <!-- CONVERSION FRANCHISE -->
-      <section id="conversion" class="relative overflow-hidden bg-white">
+      <section id="conversion" class="relative overflow-hidden bg-[linear-gradient(135deg,#fff8df_0%,#ffffff_55%,#f7f8fb_100%)]">
         <div class="absolute -right-28 top-20 size-96 rounded-full bg-brand/10 blur-3xl"></div>
-        <div class="relative mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="relative mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
               <span class="section-label">CONVERSION FRANCHISE</span>
               <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">
-                기존 휴대폰 매장도<br />폰쥬르 브랜드로 전환할 수 있습니다
+                운영 중인 휴대폰 매장도<br />폰쥬르 브랜드로 새롭게 정리할 수 있습니다
               </h2>
               <p class="mt-5 text-lg font-medium leading-[1.85] text-muted">
-                이미 매장을 운영 중이라면 모든 것을 새로 시작할 필요는 없습니다. 기존 매장의 입지와 운영 자산은 최대한 살리고, 상호와 간판, 온라인 노출, 단말기 공급 구조, 본사 마케팅 지원을 폰쥬르 기준으로 다시 정리할 수 있습니다.
+                이미 매장을 운영 중이라면 모든 것을 새로 시작할 필요는 없습니다. 기존 매장의 입지와 운영 자산은 최대한 살리고, 상호, 간판, 온라인 노출, 단말기 공급 구조, 본사 마케팅 지원을 폰쥬르 기준으로 다시 정리할 수 있습니다.
               </p>
               <div class="mt-7 rounded-[28px] border border-line bg-soft p-6 shadow-card">
                 <p class="text-sm font-black tracking-[0.12em] text-muted">REBRANDING POINT</p>
@@ -507,21 +541,24 @@
                 <h3 class="text-lg font-black">온라인 노출 재정비</h3>
                 <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">플레이스, 블로그, SNS 등 지역 고객의 검색 동선을 점검합니다.</p>
               </article>
-              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <article class="conversion-extra mobile-collapsed rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
                 <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/><path d="M9 6h6"/></svg></span>
                 <h3 class="text-lg font-black">공급 구조 점검</h3>
                 <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">현재 운영 조건을 확인하고 판매에 집중할 방향을 상담합니다.</p>
               </article>
-              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <article class="conversion-extra mobile-collapsed rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
                 <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></span>
                 <h3 class="text-lg font-black">상담 흐름 개선</h3>
                 <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">요금제, 개통, 고객 응대 흐름을 폰쥬르 기준으로 정리합니다.</p>
               </article>
-              <article class="rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
+              <article class="conversion-extra mobile-collapsed rounded-[28px] border border-line bg-[#f7f8fb] p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium active:scale-[0.98]">
                 <span class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-cream text-ink"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
                 <h3 class="text-lg font-black">오픈 재홍보 지원</h3>
                 <p class="mt-2 text-sm font-medium leading-[1.75] text-muted">상호 변경 이후 지역 고객에게 다시 알릴 홍보 방향을 잡습니다.</p>
               </article>
+              <button id="conversion-more-btn" type="button" aria-expanded="false" class="mobile-toggle-only mt-1 inline-flex h-12 w-full sm:col-span-2 items-center justify-center rounded-2xl border border-line bg-white px-4 text-sm font-black text-ink shadow-card active:scale-[0.98]">
+                전환가맹 지원 더보기
+              </button>
             </div>
           </div>
         </div>
@@ -529,11 +566,12 @@
 
       <!-- DEVICE -->
       <section id="device" class="bg-white">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 py-20 md:px-6 lg:grid-cols-2 lg:items-center lg:py-24">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 md:py-20 lg:grid-cols-2 lg:items-center lg:py-24">
           <div class="order-2 lg:order-1">
             <span class="section-label">단말기 공급 구조</span>
             <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">단말기 공급은 복잡하지 않게,<br />가맹점 입장에서 이해하기 쉽게</h2>
             <p class="mt-5 text-lg font-medium leading-[1.85] text-muted">휴대폰 매장 창업에서 중요한 것은 매장을 여는 것만이 아니라 실제로 판매할 수 있는 구조를 갖추는 것입니다. 폰쥬르는 단말기 수급과 판매 조건을 가맹점 입장에서 이해하기 쉽게 정리해드립니다.</p>
+              <div class="mt-5 grid gap-2 text-sm font-black text-ink"><span class="rounded-xl bg-cream px-3 py-2">✓ 수급 방향 안내</span><span class="rounded-xl bg-cream px-3 py-2">✓ 판매 조건 정리</span></div>
             <div class="mt-7 grid gap-3 sm:grid-cols-2">
               <div class="rounded-2xl border border-line bg-soft p-5 font-black">단말기 수급 방향 안내</div>
               <div class="rounded-2xl border border-line bg-soft p-5 font-black">판매 조건 확인</div>
@@ -551,19 +589,19 @@
       <section id="marketing" class="relative overflow-hidden bg-ink text-white">
         <div class="absolute inset-0 grid-pattern opacity-20"></div>
         <div class="absolute -right-20 top-20 size-96 rounded-full bg-brand/20 blur-3xl"></div>
-        <div class="relative mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="relative mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="grid gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
             <div>
               <span class="inline-flex rounded-full border border-brand/30 bg-brand/10 px-4 py-2 text-xs font-black tracking-[0.14em] text-brand">마케팅 지원</span>
               <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">오픈 후 고객이 찾아오는 흐름까지 본사가 함께 잡습니다.</h2>
-              <p class="mt-5 text-lg font-medium leading-[1.85] text-white/70">좋은 조건을 갖춘 매장도 고객에게 보이지 않으면 방문으로 이어지기 어렵습니다. 폰쥬르는 오픈 초기부터 지역 고객이 검색하고 문의할 수 있도록 온라인 노출과 콘텐츠 방향을 함께 잡아갑니다.</p>
-              <div class="mt-8 grid gap-3 sm:grid-cols-2">
-                <div class="rounded-2xl bg-white/10 p-4 font-black">플레이스 노출 방향</div>
-                <div class="rounded-2xl bg-white/10 p-4 font-black">블로그 콘텐츠 방향</div>
-                <div class="rounded-2xl bg-white/10 p-4 font-black">지역 키워드 운영</div>
-                <div class="rounded-2xl bg-white/10 p-4 font-black">SNS 홍보 콘텐츠</div>
-                <div class="rounded-2xl bg-white/10 p-4 font-black">오픈 초기 홍보 세팅</div>
-                <div class="rounded-2xl bg-white/10 p-4 font-black">상담 문의 동선 점검</div>
+              <p class="mt-5 text-lg font-medium leading-[1.85] text-white/70">좋은 조건을 갖춘 매장도 고객에게 보이지 않으면 방문으로 이어지기 어렵습니다. 폰쥬르는 지역 고객이 검색하고 문의할 수 있도록 플레이스, 블로그, SNS, 지역 키워드 중심의 홍보 흐름을 세팅합니다.</p>
+              <div class="mt-8 flex flex-wrap gap-2 lg:grid lg:grid-cols-2 lg:gap-3">
+                <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-black transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 lg:rounded-2xl lg:p-4 lg:text-base">플레이스 노출 방향</div>
+                <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-black transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 lg:rounded-2xl lg:p-4 lg:text-base">블로그 콘텐츠 방향</div>
+                <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-black transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 lg:rounded-2xl lg:p-4 lg:text-base">지역 키워드 운영</div>
+                <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-black transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 lg:rounded-2xl lg:p-4 lg:text-base">SNS 홍보 콘텐츠</div>
+                <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-black transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 lg:rounded-2xl lg:p-4 lg:text-base">오픈 초기 홍보 세팅</div>
+                <div class="rounded-full bg-white/10 px-4 py-2 text-sm font-black transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 lg:rounded-2xl lg:p-4 lg:text-base">상담 문의 흐름 점검</div>
               </div>
             </div>
             <div class="overflow-hidden rounded-[36px] border border-white/10 bg-white/10 p-2 shadow-premium">
@@ -575,7 +613,7 @@
 
       <!-- 비교 안내 -->
       <section id="comparison" class="bg-[#f7f8fb]">
-        <div class="mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="mx-auto max-w-3xl text-center">
             <span class="section-label">비교 안내</span>
             <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">혼자 준비하는 창업과<br />폰쥬르 창업의 차이</h2>
@@ -611,7 +649,7 @@
         <div class="absolute -left-32 top-20 size-80 rounded-full bg-brand/10 blur-3xl"></div>
         <div class="absolute -right-32 bottom-10 size-96 rounded-full bg-ink/5 blur-3xl"></div>
 
-        <div class="relative mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="relative mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
             <div>
               <span class="section-label">BRAND SYSTEM</span>
@@ -644,7 +682,44 @@
             </div>
           </div>
 
-          <div class="mt-12 grid gap-6 md:grid-cols-3">
+
+          <div id="story-mobile-accordion" class="mt-10 space-y-3 md:hidden">
+            <div class="rounded-[24px] border border-line bg-white shadow-card">
+              <button type="button" class="story-mobile-toggle flex w-full items-center justify-between gap-3 px-5 py-4 text-left" aria-expanded="false">
+                <span class="font-black">상담 노하우</span>
+                <span class="text-xl font-black text-brand">＋</span>
+              </button>
+              <div class="mobile-accordion-panel">
+                <div class="overflow-hidden px-5 pb-5 text-sm font-medium leading-[1.75] text-muted">
+                  요금제, 기기변경, 인터넷 결합, 알뜰폰 상담 등 현장에서 자주 마주하는 응대 흐름을 바탕으로 안내합니다.
+                </div>
+              </div>
+            </div>
+            <div class="rounded-[24px] border border-line bg-white shadow-card">
+              <button type="button" class="story-mobile-toggle flex w-full items-center justify-between gap-3 px-5 py-4 text-left" aria-expanded="false">
+                <span class="font-black">오픈 준비</span>
+                <span class="text-xl font-black text-brand">＋</span>
+              </button>
+              <div class="mobile-accordion-panel">
+                <div class="overflow-hidden px-5 pb-5 text-sm font-medium leading-[1.75] text-muted">
+                  상권, 매장 규모, 예산, 운영 방식에 맞춰 간판, 내부 구성, 초도 물품 등 필요한 항목부터 정리합니다.
+                </div>
+              </div>
+            </div>
+            <div class="rounded-[24px] border border-line bg-white shadow-card">
+              <button type="button" class="story-mobile-toggle flex w-full items-center justify-between gap-3 px-5 py-4 text-left" aria-expanded="false">
+                <span class="font-black">홍보 운영</span>
+                <span class="text-xl font-black text-brand">＋</span>
+              </button>
+              <div class="mobile-accordion-panel">
+                <div class="overflow-hidden px-5 pb-5 text-sm font-medium leading-[1.75] text-muted">
+                  플레이스, 블로그, SNS, 지역 키워드 등 온라인 노출 방향을 함께 잡고 오픈 초기 고객 유입 동선을 점검합니다.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 hidden gap-6 md:grid md:grid-cols-3">
             <article class="reveal group rounded-[32px] border border-line bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium">
               <div class="mb-7 flex size-16 items-center justify-center rounded-[24px] bg-cream text-ink transition-transform duration-300 group-hover:scale-105">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
@@ -680,14 +755,38 @@
 
       <!-- PROCESS -->
       <section id="process" class="bg-[#f7f8fb]">
-        <div class="mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="mx-auto max-w-3xl text-center">
             <span class="section-label">창업 절차</span>
             <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">상담부터 오픈까지,<br />과정이 보이는 창업 절차</h2>
             <p class="mt-5 text-lg font-medium leading-[1.85] text-muted">상담 신청 후 바로 계약을 권유하기보다 희망 지역, 예산, 창업 경험, 상권 조건을 먼저 확인합니다. 이후 창업자 상황에 맞는 현실적인 오픈 방향을 안내합니다.</p>
           </div>
 
-          <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div id="process-mobile-summary" class="mt-10 grid gap-3 lg:hidden">
+            <div class="rounded-[24px] border border-line bg-white p-5 shadow-card">
+              <p class="text-2xl font-black text-brand">01</p>
+              <h3 class="mt-2 text-base font-black">상담 신청</h3>
+              <p class="mt-1 text-sm leading-[1.7] text-muted">상담 유형과 희망 지역을 남겨주세요.</p>
+            </div>
+            <div class="rounded-[24px] border border-line bg-white p-5 shadow-card">
+              <p class="text-2xl font-black text-brand">02</p>
+              <h3 class="mt-2 text-base font-black">지역·예산 확인</h3>
+              <p class="mt-1 text-sm leading-[1.7] text-muted">상권, 예산, 운영 방향을 먼저 확인합니다.</p>
+            </div>
+            <div class="rounded-[24px] border border-line bg-white p-5 shadow-card">
+              <p class="text-2xl font-black text-brand">03</p>
+              <h3 class="mt-2 text-base font-black">매장 준비</h3>
+              <p class="mt-1 text-sm leading-[1.7] text-muted">간판, 내부 구성, 교육, 운영 세팅을 준비합니다.</p>
+            </div>
+            <div class="rounded-[24px] border border-line bg-white p-5 shadow-card">
+              <p class="text-2xl font-black text-brand">04</p>
+              <h3 class="mt-2 text-base font-black">오픈 및 운영 지원</h3>
+              <p class="mt-1 text-sm leading-[1.7] text-muted">오픈 초기 홍보와 운영 흐름을 함께 점검합니다.</p>
+            </div>
+          </div>
+
+          <div class="mt-12 hidden gap-4 sm:grid-cols-2 lg:grid lg:grid-cols-4">
             <div class="rounded-[28px] border border-line bg-white p-6 shadow-card"><p class="text-4xl font-black text-brand">01</p><h3 class="mt-4 text-lg font-black">창업 상담 신청</h3><p class="mt-2 text-sm leading-[1.7] text-muted">간단한 상담 폼을 통해 희망 지역과 창업 계획을 남겨주세요.</p></div>
             <div class="rounded-[28px] border border-line bg-white p-6 shadow-card"><p class="text-4xl font-black text-brand">02</p><h3 class="mt-4 text-lg font-black">희망 지역과 예산 확인</h3><p class="mt-2 text-sm leading-[1.7] text-muted">창업자의 상황에 맞춰 매장 규모, 예산, 운영 방향을 먼저 확인합니다.</p></div>
             <div class="rounded-[28px] border border-line bg-white p-6 shadow-card"><p class="text-4xl font-black text-brand">03</p><h3 class="mt-4 text-lg font-black">상권과 입지 검토</h3><p class="mt-2 text-sm leading-[1.7] text-muted">주변 상권, 경쟁 매장, 유동 인구, 고객층을 기준으로 가능성을 검토합니다.</p></div>
@@ -702,24 +801,24 @@
 
       <!-- FAQ -->
       <section id="faq" class="bg-white">
-        <div class="mx-auto max-w-4xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="mx-auto max-w-4xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="text-center">
             <span class="section-label">FAQ</span>
             <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">창업 전에 가장 많이 궁금해하시는 부분</h2>
           </div>
           <div id="faq-list" class="mt-12 space-y-4">
-            <div class="overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="true"><span class="font-black"><span class="text-brand">Q. </span>휴대폰 업종을 몰라도 창업할 수 있나요?</span><span class="faq-icon text-2xl transition rotate-180">⌄</span></button><div class="faq-panel grid grid-rows-[1fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">가능합니다. 처음 시작하는 분도 이해할 수 있도록 요금제 상담, 개통 흐름, 고객 응대, 매장 운영 방식까지 단계별로 안내합니다.</p></div></div></div>
-            <div class="overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="false"><span class="font-black"><span class="text-brand">Q. </span>창업비용은 어느 정도 생각해야 하나요?</span><span class="faq-icon text-2xl transition">⌄</span></button><div class="faq-panel grid grid-rows-[0fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">매장 규모, 지역, 인테리어 범위, 운영 방식에 따라 달라질 수 있습니다. 폰쥬르는 필수 집기, 간판, 초도 물품, 오픈 초기 홍보처럼 실제 운영에 필요한 항목을 먼저 정리해 예산에 맞는 창업 방향을 안내드립니다.</p></div></div></div>
-            <div class="overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="false"><span class="font-black"><span class="text-brand">Q. </span>단말기 공급 구조도 안내받을 수 있나요?</span><span class="faq-icon text-2xl transition">⌄</span></button><div class="faq-panel grid grid-rows-[0fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">네. 단말기 수급 방향과 운영 조건을 가맹점이 이해할 수 있도록 안내하고, 판매에 집중할 수 있는 구조를 함께 정리합니다.</p></div></div></div>
-            <div class="overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="false"><span class="font-black"><span class="text-brand">Q. </span>본사 마케팅 지원은 어떤 방식으로 진행되나요?</span><span class="faq-icon text-2xl transition">⌄</span></button><div class="faq-panel grid grid-rows-[0fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">오픈 초기 지역 고객 유입을 위해 플레이스, 블로그, SNS, 지역 키워드 등 온라인 노출 방향을 함께 잡습니다. 매장 상황에 맞춰 필요한 홍보 흐름을 본사에서 지원합니다.</p></div></div></div>
-            <div class="overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="false"><span class="font-black"><span class="text-brand">Q. </span>상담을 받으면 꼭 계약해야 하나요?</span><span class="faq-icon text-2xl transition">⌄</span></button><div class="faq-panel grid grid-rows-[0fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">아닙니다. 먼저 희망 지역, 예산, 창업 상황을 확인한 뒤 현실적인 방향을 안내드립니다. 단순 문의도 가능합니다.</p></div></div></div>
+            <div class="faq-item overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="true"><span class="font-black"><span class="text-brand">Q. </span>휴대폰 업종을 몰라도 창업할 수 있나요?</span><span class="faq-icon text-2xl transition rotate-180">⌄</span></button><div class="faq-panel grid grid-rows-[1fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">가능합니다. 처음 시작하는 분도 이해할 수 있도록 요금제 상담, 개통 흐름, 고객 응대, 매장 운영 방식까지 단계별로 안내합니다.</p></div></div></div>
+            <div class="faq-item overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="false"><span class="font-black"><span class="text-brand">Q. </span>창업비용은 어느 정도 생각해야 하나요?</span><span class="faq-icon text-2xl transition">⌄</span></button><div class="faq-panel grid grid-rows-[0fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">매장 규모, 지역, 인테리어 범위, 운영 방식에 따라 달라질 수 있습니다. 폰쥬르는 필수 집기, 간판, 초도 물품, 오픈 초기 홍보처럼 실제 운영에 필요한 항목을 먼저 정리해 예산에 맞는 창업 방향을 안내드립니다.</p></div></div></div>
+            <div class="faq-item overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="false"><span class="font-black"><span class="text-brand">Q. </span>단말기 공급 구조도 안내받을 수 있나요?</span><span class="faq-icon text-2xl transition">⌄</span></button><div class="faq-panel grid grid-rows-[0fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">네. 단말기 수급 방향과 운영 조건을 가맹점이 이해할 수 있도록 안내하고, 판매에 집중할 수 있는 구조를 함께 정리합니다.</p></div></div></div>
+            <div class="faq-item overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="false"><span class="font-black"><span class="text-brand">Q. </span>본사 마케팅 지원은 어떤 방식으로 진행되나요?</span><span class="faq-icon text-2xl transition">⌄</span></button><div class="faq-panel grid grid-rows-[0fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">오픈 초기 지역 고객 유입을 위해 플레이스, 블로그, SNS, 지역 키워드 등 온라인 노출 방향을 함께 잡습니다. 매장 상황에 맞춰 필요한 홍보 흐름을 본사에서 지원합니다.</p></div></div></div>
+            <div class="faq-item overflow-hidden rounded-[24px] border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"><button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-soft" aria-expanded="false"><span class="font-black"><span class="text-brand">Q. </span>상담을 받으면 꼭 계약해야 하나요?</span><span class="faq-icon text-2xl transition">⌄</span></button><div class="faq-panel grid grid-rows-[0fr] transition-all duration-300"><div class="overflow-hidden"><p class="px-6 pb-6 leading-[1.85] text-muted">아닙니다. 먼저 희망 지역, 예산, 창업 상황을 확인한 뒤 현실적인 방향을 안내드립니다. 단순 문의도 가능합니다.</p></div></div></div>
           </div>
         </div>
       </section>
 
       <!-- FINAL CTA -->
       <section class="bg-ink text-white">
-        <div class="mx-auto max-w-7xl px-4 py-16 md:px-6">
+        <div class="mx-auto max-w-7xl px-4 py-14 md:px-6">
           <div class="grid gap-8 rounded-[36px] border border-white/10 bg-white/5 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-10">
             <div>
               <p class="text-sm font-black tracking-[0.18em] text-brand">START CONSULTING</p>
@@ -733,7 +832,7 @@
 
       <!-- LEAD FORM -->
       <section id="lead-form" class="lead-section-bg relative overflow-hidden text-white">
-        <div class="relative mx-auto max-w-4xl px-4 py-20 md:px-6 lg:py-24">
+        <div class="relative mx-auto max-w-4xl px-4 py-14 md:px-6 md:py-20 lg:py-24">
           <div class="text-center">
             <span class="inline-flex rounded-full border border-brand/30 bg-brand/10 px-4 py-2 text-xs font-black tracking-[0.14em] text-brand">창업 상담 신청</span>
             <h2 class="mt-5 keep-ko title-balance text-3xl font-black tracking-[-0.03em] md:text-5xl">내 상황에 맞는 창업·전환 방향을 확인해보세요</h2>
@@ -884,7 +983,7 @@
 
     <!-- MOBILE FLOATING CTA -->
     <div id="mobile-floating-cta" class="fixed inset-x-0 bottom-0 z-50 px-4 safe-bottom pt-3 transition duration-300 lg:hidden">
-      <a href="#lead-form" class="shine-button flex h-14 w-full items-center justify-center rounded-2xl bg-brand text-base font-black text-ink shadow-premium">창업 상담 신청하기</a>
+      <a href="#lead-form" class="shine-button flex h-14 w-full items-center justify-center rounded-2xl bg-brand text-base font-black text-ink shadow-premium">상담 신청하기</a>
     </div>
 
     <!-- DESKTOP KAKAO FLOATING CTA -->
@@ -972,6 +1071,9 @@
       }
 
       document.querySelectorAll('.faq-toggle').forEach((button) => {
+        const item = button.closest('.faq-item');
+        if (button.getAttribute('aria-expanded') === 'true') item?.classList.add('is-open');
+
         button.addEventListener('click', () => {
           const expanded = button.getAttribute('aria-expanded') === 'true';
           const panel = button.nextElementSibling;
@@ -980,8 +1082,35 @@
           panel.classList.toggle('grid-rows-[1fr]', !expanded);
           panel.classList.toggle('grid-rows-[0fr]', expanded);
           icon.classList.toggle('rotate-180', !expanded);
+          item?.classList.toggle('is-open', !expanded);
         });
       });
+
+      const conversionMoreBtn = document.getElementById('conversion-more-btn');
+      const conversionExtras = document.querySelectorAll('.conversion-extra');
+      conversionMoreBtn?.addEventListener('click', () => {
+        const isOpen = conversionMoreBtn.getAttribute('aria-expanded') === 'true';
+        conversionMoreBtn.setAttribute('aria-expanded', String(!isOpen));
+        conversionMoreBtn.textContent = isOpen ? '전환가맹 지원 더보기' : '전환가맹 지원 접기';
+
+        conversionExtras.forEach((card) => {
+          card.classList.toggle('is-open', !isOpen);
+          if (!isOpen) card.classList.add('is-visible');
+        });
+      });
+
+      document.querySelectorAll('.story-mobile-toggle').forEach((button) => {
+        const panel = button.nextElementSibling;
+        const icon = button.querySelector('span:last-child');
+
+        button.addEventListener('click', () => {
+          const isOpen = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', String(!isOpen));
+          panel?.classList.toggle('is-open', !isOpen);
+          if (icon) icon.textContent = isOpen ? '＋' : '－';
+        });
+      });
+
 
       const summaryMap = {
         'consulting-type-input': 'summary-consulting-type',
@@ -1096,10 +1225,10 @@
         const privacy = document.getElementById('privacy-consent');
         const submitButton = document.getElementById('lead-submit-btn');
 
+        if (!consultingType?.value) return showFormAlert('상담 유형을 선택해주세요.');
         if (!name?.value.trim()) return showFormAlert('이름을 입력해주세요.');
         if (!phone?.value.trim()) return showFormAlert('연락처를 입력해주세요.');
         if (phone.value.replace(/[^0-9]/g, '').length < 10) return showFormAlert('연락처를 정확히 입력해주세요.');
-        if (!consultingType?.value) return showFormAlert('상담 유형을 선택해주세요.');
         if (!region?.value) return showFormAlert('희망 창업 지역을 선택해주세요.');
         if (!budget?.value) return showFormAlert('예상 창업 예산을 선택해주세요.');
         if (!experience?.value) return showFormAlert('휴대폰 업종 경험 여부를 선택해주세요.');
@@ -1111,7 +1240,6 @@
           consulting_type: consultingType.value,
           name: name.value.trim(),
           phone: phone.value.trim(),
-          consultingType: consultingType.value,
           region: region.value,
           budget: budget.value,
           experience: experience.value,
